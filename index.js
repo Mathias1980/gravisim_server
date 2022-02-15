@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const routes = express.Router();
 const path = require("path");
 
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT;
 
 const objectsSchema = new mongoose.Schema({
     name: String,
