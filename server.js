@@ -1,13 +1,11 @@
-require("dotenv").config()
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const routes = express.Router();
-const path = require("path");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3100;
 
 const objectsSchema = new mongoose.Schema({
     name: String,
@@ -31,7 +29,7 @@ const a = new Objects();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://mathias1880:6qW_V!.nxLtgjf9@cluster0.crvbh.mongodb.net/gravisim?retryWrites=true&w=majority", { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
@@ -60,10 +58,6 @@ routes.route('/add').post(function(req, res) {
 });
 
 app.use('/objects', routes);
-app.use(express.static(path.join(__dirname, "client", "build")))
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
