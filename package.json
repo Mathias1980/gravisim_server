@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
-  }, 
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -13,9 +13,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.2.1",
+    "nodemailer": "^6.7.2"
   },
   "engines": {
-      "node": "14.18.1"
+    "node": "14.18.1"
   }
 }
